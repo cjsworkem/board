@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf 테스트 05</title>
+</head>
+<body>
+  <h1>타임리프 링크 처리 예제 페이지</h1>
+    <div>
+<!--        th:href 는 타임리프를 사용하여 주소를 링크할 때 사용-->
+<!--        타임리프에서 주소를 사용할 경우 @{} 안에 입력해야 함-->
+        <a th:href="@{/thymeleaf/ex01}">예제 1 페이지 이동</a>
+    </div>
+    <div>
+        <a th:href="@{http://www.thymeleaf.org/}">thymeleaf 공식 홈페이지 이동</a>
+    </div>
+    <div>
+<!--        타임리프에서 th:href 속성을 사용하여 데이터를 전달 시 ()를 사용하고 파라미터의 이름 및 데이터를 입력하면 됨-->
+        <a th:href="@{/thymeleaf/ex06(param1 = '파라미터 데이터1', param2 = '파라미터 데이터2')}">thymeleaf 파라미터 전달</a>
+        <a href="/thymeleaf/ex06-1?param1=파라미터 데이터1&param2=파라미터 데이터2">일반 href</a>
+    </div>
+
+</body>
+</html>

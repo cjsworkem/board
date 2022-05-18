@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+<!--    반응형 웹을 지원하려면 아래의 메타태그가 반드시 있어야함-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>부트스트랩 사용하기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <style>
+        .box {
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<!--    부트스트랩은 모바일 우선 디자인 정책을 사용하고 있음-->
+<!--    부트스트랩은 반응형 웹을 지원하고 있음-->
+<!--    header부분에 아래 메타태그가 있어야 함-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+<!--    부트스트랩 사용 시 기본이 되는 베이스 영역-->
+<!--    1. .container : 좌우에 공백 영역이 존재, 반응형 웹 지원 -->
+<!--    2. .container-fluid : 좌우에 공백 영역이 없음, 반응형 웹 지원-->
+<!--    부트스트랩에서 지원하는 태그는 container, container-fluid의 자식 태그로 사용해야 함-->
+<!--    container눈 BS5에서 반응형 웹 지원에 따른 추가 옵션을 지원함-->
+<!--    sm(576px), md(768px), lg(992), xl(1200), xxl(1440) 의 추가 클래스를 지원함-->
+<!--    기본 container는 container-sm과 동일한 형태로 화면을 유지함-->
+    <div class="container box">
+        <p>container 사용</p>
+    </div>
+    <br>
+    <div class="container-fluid box">
+        <p>container-fluid 사용</p>
+    </div>
+    <br><hr><br>
+    <div class="box container-sm">container-sm 576px</div>
+    <div class="box container-md">container-md 768px</div>
+    <div class="box container-lg">container-lg 992px</div>
+    <div class="box container-xl">container-xl 1200px</div>
+    <div class="box container-xxl">container-xxl 1400px</div>
+
+</body>
+</html>

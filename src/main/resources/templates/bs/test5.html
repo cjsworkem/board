@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>부트스트랩 유틸리티</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="/js/bootstrap.bundle.js" th:src="@{/js/bootstrap.bundle.js}"></script>
+
+    <style>
+        span{
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-3">
+        <h1>부트스트랩 유틸리티 사용하기</h1>
+        <div>
+            <h3>border</h3>
+<!--            border : css의 border 기능을 사용할 수 있음-->
+<!--            border-0, border-1, border-2, border-3, border-4, border-5 : border-(굵기)-->
+<!--            적용할 방향에 따라 top,start, end,bottom 을 지원함-->
+<!--            boder-방향-굵기 형태로 사용-->
+<!--            부트스트랩 테마 컬러를 사용할 수 있음, primary, secondary, success, info, warning, danger, dark,light, white-->
+<!--            border-테마컬러명 -->
+            <span class="border"></span>
+            <span class="border border-0"></span>
+            <span class="border border-top-0"></span>
+            <span class="border border-start-0"></span>
+            <span class="border border-end-0"></span>
+            <span class="border border-bottom-0"></span>
+
+            <span class="border-top"></span>
+            <span class="border-start"></span>
+            <span class="border-end"></span>
+            <span class="border-bottom"></span>
+
+            <span class="border border-primary"></span>
+            <span class="border border-secondary"></span>
+            <span class="border border-info"></span>
+            <span class="border border-success"></span>
+            <span class="border border-warning"></span>
+            <span class="border border-danger"></span>
+            <span class="border border-dark"></span>
+            <span class="border border-white"></span>
+            <span class="border border-light"></span>
+
+            <span class="border border-1"></span>
+            <span class="border border-2"></span>
+            <span class="border border-3"></span>
+            <span class="border border-4"></span>
+            <span class="border border-5"></span>
+
+        </div>
+
+        <div>
+            <h3>rounded 사용하기</h3>
+<!--            rounded 클래스 사용 시 모서리 부분을 라운드 처리할 수 있음-->
+<!--            라운드 처리 방향에 따라 top,start,end,bottom 과 circle, pill을 제공함-->
+<!--            rounded-방향, rounded-모양-->
+<!--            0~3 까지의 라운드 각도 크기를 설정할 수 있음-->
+<!--            rounded-굵기-->
+            <span class="rounded" style="background-color: #555555"></span>
+            <span class="rounded-top" style="background-color: #555555"></span>
+            <span class="rounded-start" style="background-color: #555555"></span>
+            <span class="rounded-end" style="background-color: #555555"></span>
+            <span class="rounded-bottom" style="background-color: #555555"></span>
+            <span class="rounded-circle" style="background-color: #555555"></span>
+            <span class="rounded-pill" style="background-color: #555555; width: 130px" ></span>
+            <span class="rounded-0" style="background-color: #555555"></span>
+            <span class="rounded-1" style="background-color: #555555"></span>
+            <span class="rounded-2" style="background-color: #555555"></span>
+            <span class="rounded-3" style="background-color: #555555"></span>
+
+
+        </div>
+
+
+    </div>
+
+</body>
+</html>

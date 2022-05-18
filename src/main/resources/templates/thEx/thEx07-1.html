@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>타임리프 예제 7-1 </title>
+</head>
+<body>
+    <h1>플래그먼트 사용 시 데이터 전달하기</h1>
+
+<!--    플래그먼트 사용시 호출해오는 화면에 데이터를 전달하고자가 하면 해당 식별자명(데이터1,데이터2,.....)형식으로 추가하면 됨-->
+<!--    호출되는 하면에 매개변수가 존재해야 함-->
+    <div style="border: 1px solid black; margin:10px; padding: 5px;">
+        <div th:insert="fragments/param::parameter('안녕하세요','타임리프입니다')"></div>
+
+    </div>
+
+</body>
+</html>

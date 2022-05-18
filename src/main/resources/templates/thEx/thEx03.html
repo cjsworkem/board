@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf 테스트 03</title>
+</head>
+<body>
+    <h1>상품 데이터 출력 예제</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>순번</td>
+                <td>상품명</td>
+                <td>상품설명</td>
+                <td>가격</td>
+                <td>상품등록일</td>
+            </tr>
+        </thead>
+        <tbody>
+<!--        타임 리프의 each 를 사용하면 : 앞에 지정한 이름으로 변수를 생성함-->
+<!--        : 뒤에 있는 데이터에서 하나의 데이터를 가져다가 앞에 지정한 변수에 데이터를 대입함-->
+<!--        status : 타임 리프의 each 문에서 지원하는 상태 변수, 변수명이 지정되어 있음-->
+<!--        status 사용 시 사용할 수 있는 값은 index, count, size, current, even , odd, first, last 등을 사용할 수 있음-->
+            <tr th:each="itemDto, status: ${itemList}">
+                <td th:text="${status.index}"></td>
+                <td th:text="${itemDto.itemNm}"></td>
+                <td th:text="${itemDto.itemDetail}"></td>
+                <td th:text="${itemDto.price}">></td>
+                <td th:text="${itemDto.regTime}"></td>
+
+            </tr>
+            <tr th:each="itemDto, status: ${itemList}">
+                <td th:text="${status.index}"></td>
+                <td th:text="${status.count}"></td>
+                <td th:text="${status.size}"></td>
+                <td th:text="${status.current}"></td>
+                <td th:text="${status.even}"></td>
+                <td th:text="${status.odd}"></td>
+                <td th:text="${status.first}"></td>
+                <td th:text="${status.last}"></td>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+
+
+</body>
+</html>

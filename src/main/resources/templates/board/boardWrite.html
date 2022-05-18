@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>글쓰기 페이지</title>
+    <link rel="stylesheet" th:href="@{/css/myStyle.css}"/>
+
+    <script>
+<!--        순수 자바스크립트에서 html 태그를 모두 로딩한 후 자바스크립트를 시작하는 이벤트-->
+    //      JQurey 의 $(document).ready(function(){})과 같은 기능
+    window.addEventListener('DOMContentLoaded',function (){
+        var reset = document.querySelector("#cancel");
+        reset.addEventListener("click",function (){
+            history.back();
+        })
+    })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>게시판 글 등록</h2>
+        <form id="frm" name="frm" action="/board/insertBoard.do" method="post" enctype="multipart/form-data">
+            <table class="board_detail">
+                <tr>
+                    <td>제목</td>
+                    <td><input type="text" id="title" name = "title" placeholder="제목을 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td>사용자 ID</td>
+                    <td> <input type="text" id="user-id" name = "createId" placeholder="사용자 ID를 입력해주세요" ></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea id="contents" name = "contents" col="30" row="5"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <input type="file" id="files" name="files" multiple="multiple">
+            <button type="submit" id = "submit" class="btn">확인</button>
+            <button type="button" id="cancel" class="btn">취소</button>
+            <button type="reset" id="reset" class="btn">다시쓰기</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

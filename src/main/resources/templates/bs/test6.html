@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>부트스트랩 2일차</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="/js/bootstrap.bundle.js" th:src="@{/js/bootstrap.bundle.js}"></script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="div01">
+            <div class="div01-1">
+                <h3>타이포그래피</h3>
+<!--                부트스트랩에서 기존의 디자인을 변경한 h1 ~ h6까지의 태그-->
+<!--                class에 h1 ~h6를 사용하여 디자인을 변경할 수 있음-->
+                <br>
+                <h1>부트스트랩 h1</h1>
+                <h2>부트스트랩 h2</h2>
+                <h3>부트스트랩 h3</h3>
+                <h4 class="h4">부트스트랩 h4</h4>
+                <h5 class="h5">부트스트랩 h5</h5>
+                <h6 class="h6">부트스트랩 h6</h6>
+            </div>
+            <hr>
+            <div class="div01-2">
+                <h3>display</h3>
+<!--                부트스트랩에서 지원하는 class로 h1 보다 큰 제목을 사용하고자 할 경우 사용 -->
+<!--                display-1 ~ display-6 까지 존재함, 가장 작은 display-6도 h1보다 큼-->
+                <h1 class="display-1">display-1 사용</h1>
+                <h1 class="display-2">display-2 사용</h1>
+                <h1 class="display-3">display-3 사용</h1>
+                <h1 class="display-4">display-4 사용</h1>
+                <h1 class="display-5">display-5 사용</h1>
+                <h1 class="display-6">display-6 사용</h1>
+                <h1>부트스트랩용 h1</h1>
+            </div>
+            <hr>
+            <div class="div01-3">
+                <h3>그외 자주 사용되는 문자 관련 클래스</h3>
+<!--                글자 정렬 클래스, text-start(왼쪽 정렬), text-center(중앙정렬), text-end(오른쪽 정렬)-->
+<!--                text-decoration-none : 글자 밑줄 삭제-->
+                <p class="text-start">왼쪽 정렬</p>
+                <p class="text-center">중앙 정렬</p>
+                <p class="text-end">오른쪽 정렬</p>
+                <a href="http://www.daum.net" class="text-decoration-none">다음 홈페이지</a>
+                <a href="http://www.naver.com" >네이버 홈페이지</a>
+            </div>
+            <hr>
+
+        </div>
+        <div id="div02">
+<!--                부트스트랩에서 색상을 빠르고 쉽게 사용하기 위해서 8가지 기본 테마 색상을 지정하고 있음-->
+<!--                기본 테마 색상은 부트스트랩 전체에서 계속 사용됨-->
+<!--                primary,secondary,success,info,warning,danger,dark,light-->
+<!--                사용하는 태그에 따라서 white, muted, body 와 같이 추가되는 색상이 존재함-->
+<!--                사용하는 태그에 따라 text-태마색상 형태로 사용함-->
+            <div class="div02-1">
+<!--                text-테마색상 형태로 사용-->
+<!--                text-body, text-muted, text-white이 추가되어 있고, 검정색과 흰색의 투명도 중간값을 가지고있는 text-black-50, text-white-50 클래스가 bs5에서 추가됨-->
+                <h3>문자 테마 컬러 사용하기</h3>
+                <p class="text-muted">문자 테마 컬러 text-muted</p>
+                <p class="text-primary">문자 테마 컬러 text-primary</p>
+                <p class="text-success">문자 테마 컬러 text-success</p>
+                <p class="text-info">문자 테마 컬러 text-info</p>
+                <p class="text-warning">문자 테마 컬러 text-warning</p>
+                <p class="text-danger">문자 테마 컬러 text-danger</p>
+                <p class="text-secondary">문자 테마 컬러 text-secondary</p>
+                <p class="text-body">문자 테마 컬러 text-body</p>
+                <p class="text-dark">문자 테마 컬러 text-dark</p>
+                <p class="text-light bg-dark">문자 테마 컬러 text-light</p>
+                <p class="text-white bg-dark">문자 테마 컬러 text-white</p>
+                <p class="text-black-50 bg-light">문자 테마 컬러 text-black-50 사용</p>
+                <p class="text-white-50 bg-dark">문자 테마 컬러 text-white-50 사용</p>
+
+            </div>
+            <hr>
+            <div class="div02-2">
+                <h3>배경 테마 색상</h3>
+<!--                bg-테마색상 형태로 사용함-->
+<!--                기본 테마 색상에서 추가되는 것이 없이 사용함-->
+                <p class="bg-primary text-white">배경 테마 색상 bg-primary 사용</p>
+                <p class="bg-success text-white">배경 테마 색상 bg-success 사용</p>
+                <p class="bg-info text-white">배경 테마 색상 bg-info 사용</p>
+                <p class="bg-warning text-white">배경 테마 색상 bg-warning 사용</p>
+                <p class="bg-danger text-white">배경 테마 색상 bg-danger 사용</p>
+                <p class="bg-secondary text-white">배경 테마 색상 bg-secondary 사용</p>
+                <p class="bg-dark text-white">배경 테마 색상 bg-dark 사용</p>
+                <p class="bg-light text-dark">배경 테마 색상 bg-light 사용</p>
+            </div>
+        </div>
+        <hr>
+        <div id="div03">
+            <div class="div03-1">
+                <h3>부트스트랩 테이블 사용하기</h3>
+<!--                부트스트랩 테이블을 위하여 미리 디자인된 class를 제공하고 있음-->
+<!--                class 에 table 를 추가하여 사용 기본적으로 테두리가 없는 형태의 테이블 디자인임, 옵션으로 여러가지 클래스를 제공하고 있음-->
+<!--                table-hover, table-striped(짝수 ,홀수 줄의 색상 다름)-->
+<!--                table-dark 를 사용하여 검정색 테마를 사용할 수 있음-->
+<!--                table-borderless 를 사용하여 테두리가 없는 테이블 생성 가능-->
+<!--                tr,td 태그에 table-테마색상을 사용하여 특정 라인 및 칸에만 테마를 적용할 수 있음-->
+<!--                table-sm 를 사용하여 작은 크기의 테이블 생성 가능-->
+                <table border="1">
+                    <tr>
+                        <th>순번</th>
+                        <th>이름</th>
+                        <th>직업</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>유재석</td>
+                        <td>방송인</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>아이유</td>
+                        <td>가수</td>
+                    </tr>
+                </table>
+                <br>
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>순번</th>
+                            <th>이름</th>
+                            <th>직업</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>유재석</td>
+                            <td>방송인</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>아이유</td>
+                            <td>가수</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <hr>
+        <div id="div04">
+            <div class="div04-1">
+                <h3>부트스트랩의 이미지 모양 사용하기</h3>
+<!--                img 태그의 class에 rounded, rounded-circle, img-thumbnail 을 사용하여 이미지의 모양을 변경할 수 있음-->
+                <img th:src="@{/images/d1.jpg}" class="rounded">
+                <img th:src="@{/images/d1.jpg}" class="rounded-circle">
+                <img th:src="@{/images/d1.jpg}" class="img-thumbnail">
+            </div>
+            <div class="div04-2">
+                <h3>이미지 정렬하기</h3>
+<!--                img 태그의 class에 float-start, flaot-end를 사용하여 이미지의 위츠를 변결할 수 있음-->
+<!--                float-start|end 사용 시 부모태그에 clearfix를 추가하여 사용-->
+<!--                이미지를 중앙 정렬시 img 태그의 클래스에 d-block, mx-auto를 사용함-->
+                <div class="clearfix">
+                    <img th:src="@{/images/d1.jpg}" style="max-width: 400px" class="float-start">
+                    <img th:src="@{/images/d1.jpg}" style="max-width: 400px" class="float-end">
+                </div>
+                <br>
+                <div>
+<!--                    img 태그는 기본적으로 display:inline 이므로 중앙 정렬이 안되기 떄문에 class에 d-block을 추가하여 display:block 으로 변경하고 mx-auto 를 사용하여 중앙 정렬 시킴-->
+                    <img th:src="@{/images/d1.jpg}" style="max-width: 400px" class="d-block mx-auto">
+                </div>
+
+            </div>
+
+        </div>
+        <hr>
+        <div id="div05">
+            <div class="div05-1">
+<!--                부트스트랩은 버튼을 위한 기본 디자인을 미리 생성해 놓음-->
+<!--                class에 btn을 추가하여 기본 버튼을 사용-->
+<!--                추가 옵션으로 btn-테마색상, btn-outline-테마색상, btn-크기 를 사용할 수 있음-->
+<!--                부모태그에 d-grid 를 사용하고, 자식 버튼 태그에 btn-block 를 사용하여 영역 전체 크기의 버튼을 생성할 수 있음-->
+<!--                부모태그에 gap-크기 를 추가하여 영역 전체 크기의 버튼 사이의 공간을 설정할 수 있음-->
+<!--                버튼의 class에 active 를 추가하여 활성화된 버튼을 생성-->
+<!--                버튼에 disabled 속성을 추가하여 비활된 버튼을 생성-->
+<!--                input,a,button 태그에 사용할 수 있음-->
+                <h3>부트스트랩 버튼 사용하기</h3>
+                <button type="button" class="btn">기본 버튼</button>
+                <button type="reset" class="btn btn-primary">btn-primary 버튼</button>
+                <button type="button" class="btn btn-secondary">btn-secondary 버튼</button>
+                <button type="button" class="btn btn-success">btn-success 버튼</button>
+                <input type="button" class="btn btn-info" value="btn-info 버튼"></input>
+                <input type="reset" class="btn btn-danger" value="btn-danger 버튼"></input>
+                <input type="submit" class="btn btn-warning" value="btn-warning 버튼"></input>
+                <a type="button" class="btn btn-dark" href="#">btn-dark 버튼</a>
+                <a type="button" class="btn btn-light" href="#">btn-light 버튼</a>
+                <a type="button" class="btn btn-link" href="#">btn-link 버튼</a>
+                <br>
+
+
+                <button type="button" class="btn">기본 버튼</button>
+                <button type="button" class="btn btn-outline-primary">btn-outline-primary 버튼</button>
+                <button type="button" class="btn btn-outline-secondary">btn-outline-secondary 버튼</button>
+                <button type="button" class="btn btn-outline-info">btn-outline-info 버튼</button>
+                <button type="button" class="btn btn-outline-warning">btn-outline-warning 버튼</button>
+                <button type="button" class="btn btn-outline-danger">btn-outline-danger 버튼</button>
+                <button type="button" class="btn btn-outline-success">btn-outline-success 버튼</button>
+                <button type="button" class="btn btn-outline-dark">btn-outline-dark 버튼</button>
+                <button type="button" class="btn btn-outline-light">btn-outline-light 버튼</button>
+                <button type="button" class="btn btn-outline-link">btn-outline-link 버튼</button>
+
+
+            </div>
+            <br>
+            <div class="div05-2">
+                <h3>블록 타입 버튼</h3>
+                <div class="border p-3 d-grid gap-2" style="width: 500px">
+                    <button class="btn btn-primary btn-block" type="button">전체 영역 버튼</button>
+                    <button class="btn btn-success btn-block" type="button">전체 영역 버튼</button>
+                    <button class="btn btn-info btn-block" type="button">전체 영역 버튼</button>
+                    <button class="btn btn-warning btn-block" type="button">전체 영역 버튼</button>
+                </div>
+            </div>
+            <br>
+            <div class="div05-3">
+                <h3>버튼 크기와 활성/비활성</h3>
+                <button class="btn btn-primary btn-sm" type="button">작은 버튼</button>
+                <button class="btn btn-primary" type="button">기본 버튼</button>
+                <button class="btn btn-primary btn-lg" type="button">큰 버튼</button>
+                <br>
+                <button type="button" class="btn btn-primary active">활성화 버튼</button>
+                <button type="button" class="btn btn-primary" disabled>비활성화 버튼</button>
+                <a href="#" class="btn btn-primary disabled">비활성화 링크 버튼</a>
+                <a href="#" class="btn btn-primary active">활성화 링크 버튼</a>
+            </div>
+
+        </div>
+        <br>
+        <div id="div06">
+<!--            페이지 네이션 : 부트스트랩에서 미리 디자인된 페이지 버튼-->
+<!--            ul 태그에 pagination 클래스를 추가하여 사용-->
+<!--            li 태그에 page-item 을 사용하고 a 태그에 page-link 를 추가하여 사용함-->
+<!--            li 태그에 active/disalbed 를 추구하여 버튼을 활성/비활성화 함-->
+<!--            pagination-크기 를 사용하여 페이지 버튼의 크기를 조절 가능-->
+<!--            추가옵션으로 justify-content-start|center|end를 사용하여 페이지 버튼을 정렬함-->
+<!--            pagination 대신 breadcrumb 및 breadcrumb-item 을 사용하여 현재 위치를 알려주는 용도로 사용할 수 있음-->
+            <div class="div06-1">
+                <h3>pagination 사용하기</h3>
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#">prev</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">next</a></li>
+
+                </ul>
+
+                <ul class="pagination pagination-sm">
+                    <li class="page-item"><a class="page-link" href="#">prev</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">next</a></li>
+                </ul>
+                <ul class="pagination pagination-lg">
+                    <li class="page-item"><a class="page-link" href="#">prev</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">next</a></li>
+
+                </ul>
+                <br>
+                <ul class="pagination justify-content-start">
+                    <li class="page-item"><a class="page-link" href="#">prev</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">next</a></li>
+
+                </ul>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">prev</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">next</a></li>
+
+                </ul>
+                <ul class="pagination justify-content-end">
+                    <li class="page-item"><a class="page-link" href="#">prev</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">next</a></li>
+
+                </ul>
+            </div>
+            <br>
+            <div class="div06-2">
+                <h3>breadcrumb 사용하기</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Photo</a></li>
+                    <li class="breadcrumb-item"><a href="#">summer 2021</a></li>
+                    <li class="breadcrumb-item active">pusan</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+        <div id="div07">
+<!--            드랍다운버튼 : 버튼 클릭시 추가 메뉴가 노출되어 해당하는 버튼을 선택할 수 있는 메뉴-->
+<!--            부모태그로 div를 사용하고, 자식 태그로 버튼 태그와 ul,li태그를 사용하여 구현-->
+<!--            부모태그에 dropdown 클래스를 추가하고, 버튼 태그에 dropdown-toggle 클래스르 추가, 사용자 속성으로 data-bs-toggle="dropdown"을 추가함-->
+<!--            ul 태그에 dropdown-menu 클래스를 추가하고, li의 자식태그인 a 태그에 dropdown-item클래스를 추가하여 사용 -->
+<!--            li의 자식태그인 a 태그에 active/disabled 를 추가하여 활성/비활성 버튼 생성-->
+            <div class="div07-1">
+                <h3>dropdown-button 사용하기</h3>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                        드랍다운 버튼
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-item disabled">링크1</a></li>
+                        <li><a href="#" class="dropdown-item">링크2</a></li>
+                        <li><a href="#" class="dropdown-item">링크3</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="div08">
+<!--            네비게이션바 : 부트스트랩에서 제공하는 기본 메뉴 바-->
+<!--            nav 태그의 class에 navbar navbar-expand를 추가하여 사용-->
+<!--            navbar-expand-반응형크기 를 사용하여 네비게이션 바의 크기를 설정할 수 있음-->
+<!--            navbar-expand 를 사용하지 않을 경우 세로형 네비게이션바가 됨-->
+<!--            bg-테마컬러를 사용하여 네비게이션바의 색상을 변경 할 수 있음-->
+<!--            justify-content-정렬을 사용하여 메뉴의 위치를 변경할 수 있음-->
+<!--            메뉴에 드랍다운 버튼을 사용할 수 있고, form 태그를 사용하여 사용자 입력을 위한 input 태그도 사용 가능함-->
+<!--            fixed-top|bottom 을 사용하여 상단,하단 고정된 네비게이션바를 사용할 수 있음-->
+            <div class="div08-1">
+                <h3>네비게이션바 사용하기</h3>
+                <nav class="navbar navbar-expand bg-dark navbar-dark">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="#" class="nav-link">메뉴 1</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">메뉴 2</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">메뉴 3</a></li>
+                    </ul>
+                </nav>
+                <br>
+<!--                화면이 크기에 따라 메뉴를 접었다가 폈다하는 네비게이션-->
+<!--                메뉴에 포함되지 않는 버튼이 있어야 하며, 해당 버튼의 class는 navbar-toggler를 사용-->
+<!--                해당 버튼에는 data-bs-toggle="collapse", data-bs-target="접었다 펼 영역의 ID" 속성이 반드시 필요함-->
+<!--                data-bs-target 속성은 네비게이션바의 메뉴 영역을 id값으로 지정함-->
+<!--                접혔다가 펴질 영역은 div로 설정하고 자식태그로 메뉴를 입력함-->
+<!--                접혔다가 펴질 영역의 class를 collapse navbar-collapse로 설정-->
+                <nav class="navbar navbar-expand-md navbar-dark bg-dark px-2">
+                    <a class="navbar-brand">Logo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbar-collapse">
+                        <ul class="navbar-nav me-auto"><!-- me = margin-end -->
+                            <li class="nav-item"><a href="#" class="nav-link">메뉴1</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">메뉴2</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">메뉴3</a></li>
+                        </ul>
+                        <form>
+                            <input class="form-control"type="text" placeholder="Search">
+
+                        </form>
+                    </div>
+                </nav>
+
+                <nav class="navbar navbar-expand bg-dark navbar-dark fixed-bottom justify-content-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="#" class="nav-link">하단 고정된 메뉴</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="div09">
+<!--            캐러셀 사용하기-->
+<!--            캐러셀은 부모 태그로 div를 사용하고 class에 carousel slide를 추가하고, data-bs-ride="carousel"을 사용하여 캐러셀을 구현함-->
+<!--            자식태그로 3가지의 영역이 존재함-->
+<!--            1.Indicators-->
+<!--            부모 태그로 div를 사용하고 class에 carousel-indicators 를 추가하여 사용-->
+<!--            자식 태그로 button 태그를 사용하고, data-bs-target="캐러셀 태그 id값(캐러셀 부모태그의 id)을 설정하여 사용"-->
+<!--            현재 위치는 class에 active를 추가하여 사용-->
+<!--            2.Slide show-->
+<!--            부모 태그로 div를 사용하고 class에 carousel-inner 를 추가하여 사용-->
+<!--            자식태그로 div를 사용하고 class에 carousel-item을 추가하고 자식 태그로 img 태그를 사용-->
+<!--            carousel-item에 active 클래스를 추가하여 현재 화면에 출력되는 이미지를 선택함-->
+<!--            3.Controls-->
+<!--            button 태그에 carousel-control-prev,carousel-control-next 를 추가하여 사용-->
+<!--            data-bs-target="캐러셀 태그 id값", data-bs-slide="prev|next" 입력-->
+            <div class="div09-1">
+                <h3>캐러셀 사용하기</h3>
+                <div id="div-carousel" class="carousel slide" data-bs-ride="carousel">
+<!--                    인디케이터-->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#div-carousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#div-carousel" data-bs-slide-to="1" ></button>
+                        <button type="button" data-bs-target="#div-carousel" data-bs-slide-to="2" ></button>
+                    </div>
+<!--                    슬라이더-->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/images/KakaoTalk_20220517_142802507.jpg" alt="Los Angeles" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="/images/KakaoTalk_20220517_142802411.jpg" alt="Chicago" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="/images/KakaoTalk_20220517_142802634.jpg" alt="New York" class="d-block w-100">
+                        </div>
+                    </div>
+<!--                    화살표-->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#div-carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#div-carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="div10">
+<!--            모달창 : 팝업창 대신 팝업창 처럼 사용할 수 있는 영역-->
+<!--            실제로는 collapse와 비슷하게 숨겨져 있다가 이벤트 발생 시 해당 영역이 보이도록 함-->
+<!--            보통 이벤트 발생 지점인 버튼과 모달창 영역으로 나누어져 있음-->
+<!--            버튼 태그는 data-bs-toggle="modal", data-bs-target="모달창 영역 id" 가 있어야 함-->
+<!--            모달창 영역은 div로 구성하고, class에 modal을 추가하고 id 값을 사용해야 함-->
+<!--            modal의 자식태그로 modal-dialog 클래스를 사용하는 div가 존재하고, modal-content를 클래스로 사용하는 자식 태스를 가지고 있음-->
+<!--            modal-content의 자식태그는 modal-header, modal-body,modal-footer를 사용한 3개의 자식 태그가 존재함-->
+            <div class="div10-1">
+                <h3>모달창 사용하기</h3>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#div-modal">모달창 열기</button>
+                <div id="div-modal" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">모달창 header</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>모달창 body</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">닫기</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="div11">
+<!--            부트스트랩의 form 영역-->
+<!--            input 와 textarea에 form-control 클래스를 사용하여 부트스트랩에서 제공하는 디자인을 사용할 수 있음-->
+<!--            form-control 사용 시 기본적으로 하나의 라인을 모두 사용함, 부모태그로 크기 조절-->
+<!--            form태그에는 class를 사용하지 않고, label과 input태그를 하나씩 가지는 div 태그를 부모로 사용하여 label 태그와 input 태그를  묶어줌-->
+            <div class="div11-1">
+                <h3>기본 form 태그 사용</h3>
+                <div class="row">
+                    <div class="col-4 mx-auto">
+                        <from>
+                            <div class="mb-3 mt-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요" name="email">
+                            </div>
+                            <div class="my-3">
+                                <label for="pwd" class="form-label" >Password:</label>
+                                <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력하세요" name="pawd">
+                            </div>
+                            <div class="form-check my-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember">기억
+                                </label>
+                            </div>
+                            <div class="d-grid gap-3">
+                            <button type="submit" class="btn btn-primary">확인</button>
+                            </div>
+                        </from>
+                    </div>
+                </div>
+                <from>
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="이메일을 입력하세요" name="email">
+                    </div>
+                    <div class="my-3">
+                        <label for="pwd" class="form-label" >Password:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력하세요" name="pawd">
+                    </div>
+                    <div class="form-check my-3">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember">기억
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">확인</button>
+                </from>
+
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

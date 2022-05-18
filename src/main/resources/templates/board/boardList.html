@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- xmlns:th : 템플릿 엔진으로 thymeleaf를 사용한다는 의미-->
+<!-- 아래의 html 코드에서 th 속성을 사용 시 thymeleaf 템플릿이 동작한다는 의미-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 목록 페이지</title>
+
+    <link rel="stylesheet" th:href="@{/css/myStyle.css}"/>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>게시글 목록</h2>
+        <table class="board_list" >
+            <colgroup>
+                <col width="15%"/>
+                <col width="*"/>
+                <col width="15%"/>
+                <col width="20%"/>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">글번호</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">조회수</th>
+                    <th scope="col">작성일</th>
+                </tr>
+            </thead>
+            <tbody>
+<!--            th:if : 타임리프 문법 중 if문을 사용하겠다는 의미-->
+<!--            th:each : 타임리프 문법 중 반복문을 사용하겠다는 의미-->
+<!--            #lists : 타임리프에서 사용하느 list 타입의 객체를 의미-->
+                <tr th:if="${#lists.size(dataList)} >0" th:each="list : ${dataList}">
+<!--                    th:text : 타임리프 문법 중 해당 태그에 문자를 출력하겠다는 의미, 시작 태그와 끝 태그 사이에 문자를 출력-->
+
+                    <td th:text="${list.boardIdx}"></td>
+                    <td class = "title"><a href="/board/boardDetail.do?boardIdx=" th:attrappend="href=${list.boardIdx}" th:text="${list.title}"></a></td>
+                    <td th:text="${list.hitCnt}"></td>
+                    <td th:text="${list.createDate}"></td>
+                </tr>
+<!--            th:unless : 타임리프 문법 중 if문의 else에 해당하는 문법-->
+<!--            if는 해당 조건식의 값이 true일 경우 아래의 코드를 실행하고, unless는 해당 조건식의 값이 false일 경우 아래의 코드를 실행함.-->
+                <tr th:unless = "${#lists.size(dataList)} >0">
+                    <td colspan="4">조회한 결과가 없습니다</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <a href="/board/writeBoard.do" alt="" class="btn">글쓰기</a>
+        </div>
+    </div>
+</body>
+</html>

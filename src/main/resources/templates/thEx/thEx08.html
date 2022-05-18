@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>타임리프 기본 문법</title>
+    <style>
+        .box {
+        border:1px solid black;
+        margin=10px;
+        padding=5px;
+        }
+    </style>
+</head>
+<body>
+<!--  기본 문법-->
+<!--  ${...} : 변수 사용하기, 서버에서 전달한 변수를 사용하기 위한 기호 -->
+    <div class="box">
+       <h3>타임리프를 이용하여 일반 변수를 사용할 경우</h3>
+
+        <p th:text="${valInt}"></p>
+        <p th:text="${valString}"></p>
+        <hr>
+        <h3>객체형 변수를 사용했을 경우</h3>
+        <p th:text="${data}"></p>
+        <p th:text="${data.itemNm}"></p>
+        <p th:text="${data.price}"></p>
+        <hr>
+        <div th:if="${#lists.size(dataList)}>0" th:each="list:${dataList}">
+            <p th:text="${list.itemNm}"></p>
+            <p th:text="${list.price}"></p>
+            <hr>
+        </div>
+        <h3>map 방식 변수를 사용했을 경우</h3>
+        <p th:text="${map}"></p>
+        <p th:text="${map.map1}"></p>
+        <p th:text="${map.map2}"></p>
+    </div>
+    <hr>
+    <div class="box">
+        <h3>*을 사용한 변수 표현</h3>
+        <div th:object="${data}">
+            <p th:text="*{itemNm}"></p><!--<p th:text="${list.itemNm}"></p>와 같음 -->
+            <p th:text="*{price}"></p>
+        </div>
+    </div>
+    <hr>
+    <div class="box">
+<!--        message.properties 파일이 존재할 경우 해당 파일의 내용을 가져와서 문자를 표현-->
+<!--        resource 폴더 아래에 message.properties 파일이 존재해야 함-->
+        <h3>#{}을 사용하여 메시지 출력</h3>
+        <p>html로 문자를 표현</p>
+        <p th:text="|타임리프로 문자를 표현|"></p>
+        <p th:text="#{home.hello}"></p>
+        <p th:text="#{home.welcome}"></p>
+    </div>
+    <hr>
+    <div class="box">
+<!--        스프링부트에서는 리소스의 위치가 기본적으로 resource/static으로 지정되어 있음-->
+        <h3>타임리프에서 주소를 지정할 경우 사용하는 방식</h3>
+        <img src="/images/d1.jpg" style="max-height:60px"><br>
+        <img src="/images/d2.jpg" th:src="@{/images/d2.jpg}" style="max-height:60px"><br>
+        <img th:src="@{/images/cat/d3.jpg}" style="max-height:60px">
+    </div>
+    <hr>
+    <div class="box">
+        <h3>문자,숫자,boolean타입, null 표현</h3>
+        <p th:text="'문자입력'"></p>
+        <p th:text="'문자'+'입력'"></p>
+        <p th:text="'변수 valString : ' + ${valString}"></p>
+        <p th:text="|변수 valString : ${valString}|"></p>
+        <hr>
+        <p th:text="1828"></p>
+        <p th:text="123.456"></p>
+        <p th:text="true"></p>
+        <p th:text="false"></p>
+
+    </div>
+</body>
+</html>

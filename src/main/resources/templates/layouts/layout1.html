@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <th:block layout:fragment="script"></th:block>
+    <th:block layout:fragment="css"></th:block>
+</head>
+<body>
+
+    <div th:replace="fragments/header::header"></div>
+    <div layout:fragment="content">
+
+
+
+    </div>
+
+    <div th:replace="fragments/footer::footer"></div>
+
+<br><hr><br>
+
+    <!--    th:replace =" 폴더명/파일명 :: 이름-->
+    <!--    fragement를 사용하여 외부 파일을 현재의 파일에 포함시킬 때 사용하는 명령어가 2가지가 있음-->
+    <!--    th:insert : 태그내로 fragement로 지정한 파일을 포함-->
+    <!--    th:replace : 해당 태그를 fragemen로 지정한 파일로 대체(태그까지 교체)-->
+    <!--    th:include : 해당 태그는 그대로 남아있고, fragment로 지정한 파일의 내용을 포함-->
+    <div style="border:1px solid black; margin:10px; padding:5px">
+        <div th:insert="fragments/footer::test"></div>
+        <hr>
+        <div th:replace="fragments/footer::test"></div>
+        <hr>
+        <div th:include="fragments/footer::test"></div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- 해당 html 파일에서 thymeleaf 을 사용하겠다고 선언-->
+<!-- xmlns:th > 아래의 html 태그에서 th: 라는 속성을 사용하면 thymeleaf 문법을 적용함-->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf 테스트</title>
+</head>
+<body>
+<!--    thymeleaf 기본적으로 html 태그가 로드가 끝난 후 th 속성이 사용된 부분을 재로딩함.-->
+<!--    th:text 속성은 html 태그의 시작 태그와 끝 태그 사이의 문자를 입력하는데 사용-->
+<!--타임리프의 장점-->
+<!--    디자이너와 협업이 가능함, JSP의 경우 화면에 데이터를 출력 시 JSP를 통한 데이터 구현이 없을 경우 오류가 발생함-->
+<!--    타임리프는 디자인을 위한 더미값을 입력하고 타임리프가 추후에 화면을 재구성하므로 오류가 없ㅇ므-->
+    <p th:text="${data}">Hello Thymeleaf!!</p>
+    <p>자동 변경 지원되는지 확인</p>
+</body>
+</html>

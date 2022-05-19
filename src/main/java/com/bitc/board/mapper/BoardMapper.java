@@ -27,5 +27,7 @@ public interface BoardMapper {
 //  첨부파일 저장
     void insertBoardFileList(List<BoardFileDto> fileList) throws Exception;
 
+    BoardFileDto selectBoardFileInfo(@Param("idx") int idx, @Param("boardIdx") int boardIdx) throws Exception;
+
 
 }

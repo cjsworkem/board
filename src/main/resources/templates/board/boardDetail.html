@@ -7,7 +7,7 @@
 <!--    J쿼리 사용-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
+
             $("#list").on("click",function() {
                 location.href = "boardList.do";
             });
@@ -59,7 +59,10 @@
             <input type="hidden" name="boardIdx" th:value="${board.boardIdx}">
         </form>
         <div class="file_list">
-            <a  th:each="list : ${board.fileList}" th:text="|${list.originalFileName}(${list.fileSize})|" style="margin-right: 5px; "></a>
+<!--            첨부된 파일을 다운로드 받을 수 있도록 href 속성을 사용하여 지정된 주소로 접속하도록 추가-->
+<!--            매개변수로 파일 번호(idx), 게시물 번호(boardIdx)를 전달-->
+            <a  th:each="list : ${board.fileList}" th:text="|${list.originalFileName}(${list.fileSize})|" style="margin-right: 5px; "
+            th:href="@{/board/downloadBoardFile.do(idx=${list.idx},boardIdx=${list.boardIdx})}"></a>
         </div>
         <button type="button" id="list" class="btn">목록으로</button>
         <button type="button" id="edit" class="btn">수정하기</button>

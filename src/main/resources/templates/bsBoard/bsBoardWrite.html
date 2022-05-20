@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="/js/bootstrap.bundle.js" th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded",function (){
+            var btnReset = document.querySelector("#btn-reset");
+            btnReset.addEventListener("click",function (){
+                history.back();
+            })
+        })
+    </script>
+</head>
+<body>
+<header class="container">
+    <div class="mt-4 p-5 bg-secondary bg-opacity-75 text-white rounded text-center">
+        <h1>부트스트랩을 사용한 게시판 만들기</h1>
+        <h3>글쓰기</h3>
+    </div>
+
+</header>
+<main class="container mt-4">
+    <section>
+        <article class="row">
+            <div class="col-md-6 mx-auto">
+                <form action="/bsBoard/bsInsertBoard.do" method="post">
+                    <div class="my-3">
+                        <label for="title" class="form-label">제목 : </label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요">
+                    </div>
+                    <div class="my-3">
+                        <label for="user-id" class="form-label">사용자 ID :</label>
+                        <input type="text" class="form-control" id="user-id" name="createId" placeholder="사용자 ID를 입력하세요">
+                    </div>
+                    <div class="my-3">
+                        <label for="contents" class="form-label">내용 : </label>
+                        <textarea rows="10" id="contents" name="contents" class="form-control"></textarea>
+                    </div>
+
+                    <div class="d-flex my-3">
+                        <button type="submit" class="btn btn-primary ms-auto">확인</button>
+                        <button type="reset" class="btn btn-secondary ms-2" id="btn-reset">취소</button>
+                    </div>
+                </form>
+
+            </div>
+        </article>
+    </section>
+</main>
+<footer class="container-fluid border-top text-center p-5 mt-4">
+    <p class="text-muted lead">made by bitc</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="/js/bootstrap.bundle.js" th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn-list").on("click",function() {
+                location.href = "/bsBoard/bsBoardList.do";
+            });
+            $("#btn-edit").on("click",function() {
+                var frm = $("#frm")[0];
+                frm.action = "/bsBoard/bsUpdateBoard.do";
+                frm.submit();
+            });
+            $("#btn-delete").on("click",function() {
+                var frm = $("#frm")[0];
+                frm.action = "/bsBoard/bsDeleteBoard.do";
+                frm.submit();
+            });
+        });
+    </script>
+</head>
+<body>
+<header class="container">
+    <div class="mt-4 p-5 bg-secondary bg-opacity-75 text-white rounded text-center">
+        <h1>부트스트랩을 사용한 게시판 만들기</h1>
+        <h3>게시글 상세 확인</h3>
+    </div>
+</header>
+<main class="container mt-4">
+    <section>
+        <form id="frm" method="post">
+        <article class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="row my-2">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">글번호</span>
+                            <input type="text" name="boardIdx" class="form-control" th:value="${board.boardIdx}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">조회수</span>
+                            <input type="text" class="form-control" th:value="${board.hitCnt}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">작성자</span>
+                            <input type="text" name="creatId" class="form-control" th:value="${board.createId}" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">작성일</span>
+                            <input type="text" class="form-control" th:value="${board.createDate}" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md">
+                        <div class="input-group">
+                            <span class="input-group-text">제목</span>
+                            <input type="text" name="title" class="form-control" th:value="${board.title}">
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md">
+                        <div>
+                            <textarea row="10" name="contents" class="form-control" th:text="${board.contents}"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+        <article class="row my-3">
+            <div class="col-md-8 mx-auto">
+                <div class="d-flex">
+                    <button type="button" id="btn-list" class="btn btn-secondary me-auto">목록</button>
+                    <button type="button" id="btn-edit" class="btn btn-warning ">수정</button>
+                    <button type="button" id="btn-delete" class="btn btn-danger ms-2">삭제</button>
+                </div>
+            </div>
+        </article>
+        </form>
+    </section>
+
+</main>
+<footer class="container-fluid border-top text-center p-5 mt-4">
+    <p class="text-muted lead">made by bitc</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="/js/bootstrap.bundle.js" th:src="@{/js/bootstrap.bundle.js}"></script>
+</head>
+<body>
+    <header class="container">
+        <div class="mt-4 p-5 bg-secondary bg-opacity-75 text-white rounded text-center">
+            <h1>부트스트랩을 사용한 게시판 만들기</h1>
+            <h3>게시글 목록</h3>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section>
+            <article class="row">
+                <div class="col-md">
+                    <table class="table table-hover table-striped">
+                        <colgroup>
+                            <col width="15%"/>
+                            <col width="*"/>
+                            <col width="15%"/>
+                            <col width="20%"/>
+                        </colgroup>
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">글번호</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">조회수</th>
+                                <th scope="col">작성일</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr class="text-center" th:if="${#lists.size(dataList)>0}" th:each="list : ${dataList}">
+                                <td th:text="${list.boardIdx}"></td>
+                                <td class="text-start"><a class="text-decoration-none" th:text="${list.title}" th:href="@{/bsBoard/bsBoardDetail.do(boardIdx=${list.boardIdx})}"></a> </td>
+                                <td th:text="${list.hitCnt}"></td>
+                                <td th:text="${list.createDate}"></td>
+                            </tr>
+                            <tr th:unless="${#lists.size(dataList)>0}">
+                                <td colspan="4">데이터가 없습니다.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+<!--                    오른쪽 정렬시키기 1.부모태그에 flex-row-reverse(순서가 반대가됨) 2. 자식태그에 ms-auto-->
+                    <div class="d-flex flex-row">
+                        <a class="btn btn-primary ms-auto" th:href="@{/bsBoard/bsWriteBoard.do}">글쓰기</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer class="container-fluid border-top text-center p-5 mt-4">
+        <p class="text-muted lead">made by bitc</p>
+    </footer>
+</body>
+</html>

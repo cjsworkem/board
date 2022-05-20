@@ -143,6 +143,52 @@ public class BoardController {
 
 
 
+    //=================================================================================================================
+    //    bsBoard부분
+    @RequestMapping("/bsBoard/bsBoardList.do")
+    public ModelAndView openBsBoardList() throws Exception{
+        ModelAndView mv = new ModelAndView("/bsBoard/bsBoardList");
+        List<BoardDto> dataList = boardService.selectBoardList();
+        mv.addObject("dataList",dataList);
+        return mv;
+    }
+
+
+    @RequestMapping("/bsBoard/bsWriteBoard.do")
+    public String writeBsBoard() throws Exception{
+        return "/bsBoard/bsBoardWrite";
+    }
+
+    @RequestMapping("/bsBoard/bsInsertBoard.do")
+    public String insertBsBoard(BoardDto board, MultipartHttpServletRequest multiUploadFiles) throws Exception{
+        boardService.insertBoard(board,multiUploadFiles);
+        return "redirect:/bsBoard/bsBoardList.do";
+    }
+
+    @RequestMapping("/bsBoard/bsBoardDetail.do")
+    public ModelAndView bsBoardDetail(@RequestParam("boardIdx") int boardIdx) throws  Exception {
+        ModelAndView mv = new ModelAndView("/bsBoard/bsBoardDetail");
+
+        BoardDto board = boardService.selectBoardDetail(boardIdx);
+        mv.addObject("board",board);
+        return mv;
+    }
+
+    @RequestMapping("/bsBoard/bsUpdateBoard.do")
+    public String updateBsBoard(BoardDto board) throws  Exception {
+        boardService.updateBoard(board);
+        return "redirect:/bsBoard/bsBoardList.do";
+    }
+    //게시물 삭제하기
+    @RequestMapping("/bsBoard/bsDeleteBoard.do")
+    public String deleteBsBoard(@RequestParam("boardIdx") int boardIdx) throws Exception {
+        boardService.deleteBoard(boardIdx);
+        return "redirect:/bsBoard/bsBoardList.do";
+    }
+
+
+
+
 
 
 }

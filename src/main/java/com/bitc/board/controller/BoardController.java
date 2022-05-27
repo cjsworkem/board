@@ -3,6 +3,8 @@ package com.bitc.board.controller;
 import com.bitc.board.dto.BoardDto;
 import com.bitc.board.dto.BoardFileDto;
 import com.bitc.board.service.BoardService;
+import com.bitc.board.service.LoginService;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.net.URLEncoder;
 import java.util.List;
@@ -146,10 +150,15 @@ public class BoardController {
     //=================================================================================================================
     //    bsBoard부분
     @RequestMapping("/bsBoard/bsBoardList.do")
-    public ModelAndView openBsBoardList() throws Exception{
+    public ModelAndView openBsBoardList(@RequestParam(required = false,defaultValue = "1")int pageNum,HttpServletRequest request) throws Exception{
         ModelAndView mv = new ModelAndView("/bsBoard/bsBoardList");
-        List<BoardDto> dataList = boardService.selectBoardList();
+        PageInfo<BoardDto> dataList = new PageInfo<>(boardService.selectBoardListPaging(pageNum),5);
+//        List<BoardDto> dataList = boardService.selectBoardList();
         mv.addObject("dataList",dataList);
+        HttpSession session = request.getSession();
+        String userId = (String) session.getAttribute("userId");
+        mv.addObject("userId",userId);
+
         return mv;
     }
 
@@ -185,6 +194,46 @@ public class BoardController {
         boardService.deleteBoard(boardIdx);
         return "redirect:/bsBoard/bsBoardList.do";
     }
+
+    @RequestMapping("/bsBoard/login")
+    public String boardLogin() throws Exception{
+        return "/bsBoard/bsBoardLogin";
+    }
+
+    @Autowired
+    LoginService loginService;
+    @RequestMapping("/bsBoard/loginCheck")
+    public String boardLoginCheck(@RequestParam("userId") String userId, @RequestParam("userPw") String userPw, HttpServletRequest request) throws Exception{
+
+        int count = loginService.selectUserInfoYn(userId,userPw);
+        if (count == 1) {
+            HttpSession session = request.getSession();
+            session.setAttribute("userId",userId);
+            session.setMaxInactiveInterval(300);
+            return "redirect:/bsBoard/bsBoardList.do";
+        } else {
+            return "redirect:/bsBoard/loginFail";
+        }
+    }
+
+    @RequestMapping("/bsBoard/loginFail")
+    public String boardLoginFail() throws Exception{
+        return "/bsBoard/bsBoardLoginFail";
+    }
+
+    @RequestMapping("/bsBoard/isLoginFalse")
+    public String boardIsLoginFalse() throws  Exception{
+        return "/bsBoard/bsBoardIsLoginFalse";
+    }
+    @RequestMapping("/bsBoard/logout")
+    public String logout(HttpServletRequest request) throws Exception{
+        HttpSession session = request.getSession();
+        session.removeAttribute("userId");
+        session.invalidate();
+        return "redirect:/bsBoard/bsBoardList.do";
+    }
+
+
 
 
 

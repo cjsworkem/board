@@ -4,6 +4,8 @@ import com.bitc.board.common.FileUtils;
 import com.bitc.board.dto.BoardDto;
 import com.bitc.board.dto.BoardFileDto;
 import com.bitc.board.mapper.BoardMapper;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -110,6 +112,12 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public BoardFileDto selectBoardFileInfo(int idx, int boardIdx) throws Exception {
         return boardMapper.selectBoardFileInfo(idx,boardIdx);
+    }
+
+    @Override
+    public Page<BoardDto> selectBoardListPaging(int pageNum) throws Exception {
+        PageHelper.startPage(pageNum,5);
+        return boardMapper.selectBoardListPaging();
     }
 
 

@@ -34,20 +34,37 @@
                             </tr>
                         </thead>
                         <tbody >
-                            <tr class="text-center" th:if="${#lists.size(dataList)>0}" th:each="list : ${dataList}">
+                            <tr class="text-center" th:if="${#lists.size(dataList.getList())>0}" th:each="list : ${dataList.getList()}">
                                 <td th:text="${list.boardIdx}"></td>
                                 <td class="text-start"><a class="text-decoration-none" th:text="${list.title}" th:href="@{/bsBoard/bsBoardDetail.do(boardIdx=${list.boardIdx})}"></a> </td>
                                 <td th:text="${list.hitCnt}"></td>
                                 <td th:text="${list.createDate}"></td>
                             </tr>
-                            <tr th:unless="${#lists.size(dataList)>0}">
+                            <tr th:unless="${#lists.size(dataList.getList())>0}">
                                 <td colspan="4">데이터가 없습니다.</td>
                             </tr>
                         </tbody>
                     </table>
+                    <nav >
+                        <ul class="pagination pagination-sm justify-content-center">
+                            <li class="page-item" th:classappend="${dataList.getPrePage()==0}?'disabled'" >
+                                <a class="page-link" th:href="@{/bsBoard/bsBoardList.do(pageNum=${dataList.getPrePage()})}">prev</a>
+                            </li>
+                            <li class="page-item" th:each="item:${#numbers.sequence(dataList.getNavigateFirstPage(),dataList.getNavigateLastPage())}" th:classappend="${item==dataList.getPageNum()} ? 'active'">
+                                <a class="page-link" th:text="${item}" th:href="@{/bsBoard/bsBoardList.do(pageNum=${item})}"></a>
+                            </li>
+                            <li class="page-item" th:classappend="${dataList.getNextPage()==0}?'disabled'">
+                                <a class="page-link" th:href="@{/bsBoard/bsBoardList.do(pageNum=${dataList.getNextPage()})}">prev</a>
+                            </li>
+                        </ul>
+
+                    </nav>
+
 <!--                    오른쪽 정렬시키기 1.부모태그에 flex-row-reverse(순서가 반대가됨) 2. 자식태그에 ms-auto-->
                     <div class="d-flex flex-row">
                         <a class="btn btn-primary ms-auto" th:href="@{/bsBoard/bsWriteBoard.do}">글쓰기</a>
+                        <a class="btn btn-link" th:href="@{/bsBoard/logout}" th:classappend="${userId==null}?'disabled'" >로그아웃</a>
+                        <a class="btn btn-link" th:href="@{/bsBoard/login}" th:classappend="${userId!=null}?'disabled'">로그인</a>
                     </div>
                 </div>
             </article>

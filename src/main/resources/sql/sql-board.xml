@@ -22,6 +22,15 @@
         ORDER BY board_idx DESC
         ]]>
     </select>
+    
+    <select id="selectBoardListPaging" resultType="com.bitc.board.dto.BoardDto">
+        <![CDATA[
+        SELECT board_idx,title,create_id,create_date,hit_cnt
+        FROM board
+        WHERE deleted_yn = 'N'
+        ORDER BY board_idx DESC
+        ]]>
+    </select>
 <!--    상세보기-->
     <select id="selectBoardDetail" resultType="com.bitc.board.dto.BoardDto"  parameterType="int">
         <![CDATA[

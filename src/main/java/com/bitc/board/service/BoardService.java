@@ -2,6 +2,7 @@ package com.bitc.board.service;
 
 import com.bitc.board.dto.BoardDto;
 import com.bitc.board.dto.BoardFileDto;
+import com.github.pagehelper.Page;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface BoardService {
     void updateBoard(BoardDto board) throws Exception;
 
     BoardFileDto selectBoardFileInfo(int idx, int boardIdx) throws Exception;
+
+    Page<BoardDto> selectBoardListPaging(int pageNum) throws Exception;
 }

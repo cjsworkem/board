@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}">
+    <script src="/js/bootstrap.bundle.js" th:src="@{/js/bootstrap.bundle.js}"></script>
+</head>
+<body>
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <p>로그인 되었습니다</p>
+                <p th:if="${session.userId}!=null" th:text="|${session.userId}님 반갑습니다|"></p>
+                <a href="logout" class="btn btn-link">로그 아웃</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

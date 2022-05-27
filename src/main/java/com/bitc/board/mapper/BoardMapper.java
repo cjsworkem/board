@@ -2,6 +2,7 @@ package com.bitc.board.mapper;
 
 import com.bitc.board.dto.BoardDto;
 import com.bitc.board.dto.BoardFileDto;
+import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -30,4 +31,5 @@ public interface BoardMapper {
     BoardFileDto selectBoardFileInfo(@Param("idx") int idx, @Param("boardIdx") int boardIdx) throws Exception;
 
 
+    Page<BoardDto> selectBoardListPaging() throws Exception;
 }
